@@ -1,6 +1,10 @@
 import { BigIntMath } from '@kdt310722/utils/number'
 import type { BondingCurve } from '../accounts'
 
+export function calculateTokenPrice(virtualSolReserves: bigint, virtualTokenReserves: bigint, decimals = 6n) {
+    return (virtualSolReserves * 10n ** decimals) / virtualTokenReserves
+}
+
 export function calculateTokenOut(bondingCurve: Pick<BondingCurve, 'virtualSolReserves' | 'virtualTokenReserves' | 'realTokenReserves'>, solIn: bigint) {
     const { virtualSolReserves, virtualTokenReserves, realTokenReserves } = bondingCurve
 
