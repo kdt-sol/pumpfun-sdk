@@ -14,15 +14,15 @@ export function parseLogs(logs: string[] | readonly string[], throwsOnIdentifyEr
     for (let i = 0; i < logs.length; i++) {
         const message = logs[i]
 
-        if (message === PROGRAM_SUCCESS_MESSAGE && logs[i + 1]?.startsWith(PROGRAM_DATA_MESSAGE)) {
-            const data = Buffer.from(logs[i + 1].split(': ')[1], 'base64')
+        if (message.startsWith(PROGRAM_DATA_MESSAGE) && logs[i + 2] === PROGRAM_SUCCESS_MESSAGE) {
+            const data = Buffer.from(message.split(': ')[1], 'base64')
             const eventType = tryCatch(() => identifyPumpEvent(data.subarray(0, 8)), null, () => throwsOnIdentifyError)
 
             if (notNullish(eventType)) {
                 parsedLogs.push({ eventType, data: EVENT_DECODERS[eventType].decode(data.subarray(8)) } as ParsedLog)
             }
 
-            i++
+            i += 2
         }
     }
 
