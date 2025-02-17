@@ -4,27 +4,27 @@ import { PUMP_PROGRAM_ADDRESS } from '../constants'
 import type { ParsedLog } from './types'
 import { EVENT_DECODERS, identifyPumpEvent } from './identify'
 
+export const PROGRAM_INVOKE_MESSAGE = `Program ${PUMP_PROGRAM_ADDRESS} invoke`
+
 export const PROGRAM_SUCCESS_MESSAGE = `Program ${PUMP_PROGRAM_ADDRESS} success`
 
 export const PROGRAM_DATA_MESSAGE = 'Program data:'
 
-export function parseLogs(logs: string[] | readonly string[], throwsOnIdentifyError = true): ParsedLog[] {
-    const parsedLogs: ParsedLog[] = []
+export function * parseLogs(logs: string[] | readonly string[], throwsOnIdentifyError = true) {
+    let invoked = 0
 
-    for (let i = 0; i < logs.length; i++) {
-        const message = logs[i]
-
-        if (message.startsWith(PROGRAM_DATA_MESSAGE) && logs[i + 2] === PROGRAM_SUCCESS_MESSAGE) {
-            const data = Buffer.from(message.split(': ')[1], 'base64')
+    for (const log of logs) {
+        if (log.startsWith(PROGRAM_INVOKE_MESSAGE)) {
+            invoked++
+        } else if (log.startsWith(PROGRAM_SUCCESS_MESSAGE)) {
+            invoked--
+        } else if (log.startsWith(PROGRAM_DATA_MESSAGE) && invoked > 0) {
+            const data = Buffer.from(log.slice(PROGRAM_DATA_MESSAGE.length + 1), 'base64')
             const eventType = tryCatch(() => identifyPumpEvent(data.subarray(0, 8)), null, () => throwsOnIdentifyError)
 
             if (notNullish(eventType)) {
-                parsedLogs.push({ eventType, data: EVENT_DECODERS[eventType].decode(data.subarray(8)) } as ParsedLog)
+                yield { eventType, data: EVENT_DECODERS[eventType].decode(data.subarray(8)) } as ParsedLog
             }
-
-            i += 2
         }
     }
-
-    return parsedLogs
 }
