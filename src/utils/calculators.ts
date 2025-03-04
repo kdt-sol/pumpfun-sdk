@@ -5,6 +5,32 @@ export function calculateTokenPrice(virtualSolReserves: bigint, virtualTokenRese
     return (virtualSolReserves * 10n ** decimals) / virtualTokenReserves
 }
 
+export interface CalculateVirtualReservesBeforeParams {
+    virtualSolReserves: bigint
+    virtualTokenReserves: bigint
+    solAmount: bigint
+    tokenAmount: bigint
+    isBuy: boolean
+}
+
+export function calculateVirtualReservesBefore({ virtualSolReserves: solReserves, virtualTokenReserves: tokenReserves, solAmount, tokenAmount, isBuy }: CalculateVirtualReservesBeforeParams) {
+    const virtualSolReserves = isBuy ? solReserves - solAmount : solReserves + solAmount
+    const virtualTokenReserves = isBuy ? tokenReserves + tokenAmount : tokenReserves - tokenAmount
+
+    return { virtualSolReserves, virtualTokenReserves }
+}
+
+export interface CalculateTokenPriceBeforeParams extends CalculateVirtualReservesBeforeParams {
+    decimals?: bigint
+}
+
+export function calculateTokenPriceBefore({ decimals, ...params }: CalculateTokenPriceBeforeParams) {
+    const reserves = calculateVirtualReservesBefore(params)
+    const { virtualSolReserves, virtualTokenReserves } = reserves
+
+    return calculateTokenPrice(virtualSolReserves, virtualTokenReserves, decimals)
+}
+
 export function calculateTokenOut(bondingCurve: Pick<BondingCurve, 'virtualSolReserves' | 'virtualTokenReserves' | 'realTokenReserves'>, solIn: bigint) {
     const { virtualSolReserves, virtualTokenReserves, realTokenReserves } = bondingCurve
 
