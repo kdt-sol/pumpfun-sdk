@@ -1,4 +1,4 @@
-import { type Address, type SOLANA_ERROR__INSTRUCTION_ERROR__CUSTOM, type SolanaError, isProgramError } from '@solana/web3.js'
+import { type Address, type SOLANA_ERROR__INSTRUCTION_ERROR__CUSTOM, type SolanaError, isProgramError } from '@solana/kit'
 import { PUMP_PROGRAM_ADDRESS } from '../constants'
 import type { PumpError } from './types'
 import { PUMP_ERROR_MESSAGES } from './constants'

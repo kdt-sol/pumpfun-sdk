@@ -1,4 +1,4 @@
-import type { Address, TransactionSigner } from '@solana/web3.js'
+import type { Address, TransactionSigner } from '@solana/kit'
 import { getAssociatedBondingCurveAddress, getBondingCurveAddress } from '../utils'
 import { EVENT_AUTHORITY_ADDRESS, FEE_RECIPIENT_ADDRESS, GLOBAL_ACCOUNT_ADDRESS, PUMP_PROGRAM_ADDRESS } from '../constants'
 

@@ -1,4 +1,4 @@
-import { type BaseTransactionMessage, prependTransactionMessageInstructions } from '@solana/web3.js'
+import { type BaseTransactionMessage, prependTransactionMessageInstructions } from '@solana/kit'
 import { getSetComputeUnitLimitInstruction, getSetComputeUnitPriceInstruction } from '@solana-program/compute-budget'
 import { MICRO_LAMPORTS_PER_LAMPORT } from '../constants'
 

@@ -1,4 +1,4 @@
-import { address } from '@solana/web3.js'
+import { address } from '@solana/kit'
 
 export const SYSTEM_PROGRAM_ADDRESS = address('11111111111111111111111111111111')
 

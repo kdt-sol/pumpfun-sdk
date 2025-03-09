@@ -1,4 +1,4 @@
-import { AccountRole, type Address, type IAccountMeta, type IAccountSignerMeta, upgradeRoleToSigner } from '@solana/web3.js'
+import { AccountRole, type Address, type IAccountMeta, type IAccountSignerMeta, upgradeRoleToSigner } from '@solana/kit'
 import type { ResolvedAccount } from './types'
 import { isTransactionSigner } from './signers'
 import { expectAddress } from './asserts'

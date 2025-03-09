@@ -1,4 +1,4 @@
-import { type Address, getAddressEncoder, getProgramDerivedAddress } from '@solana/web3.js'
+import { type Address, getAddressEncoder, getProgramDerivedAddress } from '@solana/kit'
 import { ASSOCIATED_TOKEN_PROGRAM_ADDRESS, BONDING_CURVE_SEED, PUMP_PROGRAM_ADDRESS, TOKEN_PROGRAM_ADDRESS } from '../constants'
 
 export async function getAssociatedTokenAddress(mint: Address, owner: Address, programId: Address = TOKEN_PROGRAM_ADDRESS, associatedTokenProgramId: Address = ASSOCIATED_TOKEN_PROGRAM_ADDRESS) {

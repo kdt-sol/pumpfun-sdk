@@ -1,4 +1,4 @@
-import { type Address, type Codec, type Decoder, type Encoder, addDecoderSizePrefix, addEncoderSizePrefix, combineCodec, getAddressDecoder, getAddressEncoder, getStructDecoder, getStructEncoder, getU32Decoder, getU32Encoder, getUtf8Decoder, getUtf8Encoder } from '@solana/web3.js'
+import { type Address, type Codec, type Decoder, type Encoder, addDecoderSizePrefix, addEncoderSizePrefix, combineCodec, getAddressDecoder, getAddressEncoder, getStructDecoder, getStructEncoder, getU32Decoder, getU32Encoder, getUtf8Decoder, getUtf8Encoder } from '@solana/kit'
 
 export interface CreateEvent {
     name: string

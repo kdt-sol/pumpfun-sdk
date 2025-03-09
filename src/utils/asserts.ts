@@ -1,4 +1,4 @@
-import { type Address, type ProgramDerivedAddress, type TransactionSigner, isProgramDerivedAddress } from '@solana/web3.js'
+import { type Address, type ProgramDerivedAddress, type TransactionSigner, isProgramDerivedAddress } from '@solana/kit'
 import { isTransactionSigner } from './signers'
 import type { AddressLike } from './types'
 

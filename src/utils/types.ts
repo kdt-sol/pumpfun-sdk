@@ -1,4 +1,4 @@
-import type { Address, ProgramDerivedAddress, TransactionSigner } from '@solana/web3.js'
+import type { Address, ProgramDerivedAddress, TransactionSigner } from '@solana/kit'
 
 export type AddressLike<T extends string = string> = Address<T> | ProgramDerivedAddress<T> | TransactionSigner<T>
 

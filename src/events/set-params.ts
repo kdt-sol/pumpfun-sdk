@@ -1,4 +1,4 @@
-import { type Address, type Codec, type Decoder, type Encoder, combineCodec, getAddressDecoder, getAddressEncoder, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from '@solana/web3.js'
+import { type Address, type Codec, type Decoder, type Encoder, combineCodec, getAddressDecoder, getAddressEncoder, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from '@solana/kit'
 
 export interface SetParamsEvent {
     feeRecipient: Address

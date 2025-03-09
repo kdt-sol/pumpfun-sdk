@@ -1,4 +1,4 @@
-import { type ReadonlyUint8Array, containsBytes, fixEncoderSize, getBytesEncoder } from '@solana/web3.js'
+import { type ReadonlyUint8Array, containsBytes, fixEncoderSize, getBytesEncoder } from '@solana/kit'
 import { transform, tryCatch } from '@kdt310722/utils/function'
 
 export enum PumpAccount {

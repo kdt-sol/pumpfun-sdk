@@ -1,4 +1,4 @@
-import { type Address, type IInstruction, type TransactionSigner, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/web3.js'
+import { type Address, type IInstruction, type TransactionSigner, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
 import { getCreateAssociatedTokenInstruction } from '@solana-program/token'
 import type { BondingCurve } from '../accounts'
 import { calculateTokenOut, getAssociatedTokenAddress, getMaxSolCost } from '../utils'
