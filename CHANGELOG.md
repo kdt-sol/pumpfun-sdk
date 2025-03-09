@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v0.1.1
+
+[compare changes](https://github.com/kdt-sol/pumpfun-sdk/compare/v0.1.0...v0.1.1)
+
+### 💅 Refactors
+
+- Change fee recipient address ([c844dcb](https://github.com/kdt-sol/pumpfun-sdk/commit/c844dcb))
+
+### ❤️ Contributors
+
+- Diep Dang <kdt310722@gmail.com>
+
 ## v0.1.0
 
 [compare changes](https://github.com/kdt-sol/pumpfun-sdk/compare/v0.0.4...v0.1.0)
