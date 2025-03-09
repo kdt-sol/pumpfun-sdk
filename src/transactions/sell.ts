@@ -1,23 +1,19 @@
-import { type Address, type TransactionSigner, appendTransactionMessageInstruction, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
-import type { BondingCurve, Global } from '../accounts'
-import { calculateSolOut, getAssociatedTokenAddress, getMinSolOut } from '../utils'
-import { getSellInstructionParams } from '../params'
+import { appendTransactionMessageInstruction, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
+import type { Global } from '../accounts'
 import { getSellInstruction } from '../instructions'
+import { getSellInstructionParams } from '../params'
+import { calculateSolOut, getAssociatedTokenAddress, getMinSolOut } from '../utils'
+import type { CreateTradeTransactionParams } from './types'
 
-export interface CreateSellTransactionParams {
-    mint: Address
-    bondingCurve: Pick<BondingCurve, 'virtualSolReserves' | 'virtualTokenReserves'>
+export interface CreateSellTransactionParams extends CreateTradeTransactionParams {
     global: Pick<Global, 'feeBasisPoints'>
-    user: TransactionSigner
-    amount: bigint
-    slippage: number
 }
 
-export async function createSellTransaction({ mint, bondingCurve, global, user, amount, slippage }: CreateSellTransactionParams) {
+export async function createSellTransaction({ mint, bondingCurve, global, user, amount, slippage, feeRecipient }: CreateSellTransactionParams) {
     const solOut = calculateSolOut(bondingCurve, amount, global.feeBasisPoints)
     const minSolOutput = getMinSolOut(solOut, slippage)
     const tokenAccount = await getAssociatedTokenAddress(mint, user.address)
-    const params = await getSellInstructionParams({ mint, amount, user, minSolOutput, tokenAccount })
+    const params = await getSellInstructionParams({ mint, amount, user, minSolOutput, tokenAccount, feeRecipient })
 
     return pipe(
         createTransactionMessage({ version: 'legacy' }),

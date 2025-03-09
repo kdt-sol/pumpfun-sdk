@@ -1,20 +1,15 @@
-import { type Address, type IInstruction, type TransactionSigner, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
 import { getCreateAssociatedTokenInstruction } from '@solana-program/token'
-import type { BondingCurve } from '../accounts'
-import { calculateTokenOut, getAssociatedTokenAddress, getMaxSolCost } from '../utils'
-import { getBuyInstructionParams } from '../params'
+import { type Address, type IInstruction, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
 import { getBuyInstruction } from '../instructions'
+import { getBuyInstructionParams } from '../params'
+import { calculateTokenOut, getAssociatedTokenAddress, getMaxSolCost } from '../utils'
+import type { CreateTradeTransactionParams } from './types'
 
-export interface CreateBuyTransactionParams {
-    mint: Address
-    bondingCurve: Pick<BondingCurve, 'virtualSolReserves' | 'virtualTokenReserves' | 'realTokenReserves'>
-    user: TransactionSigner
+export interface CreateBuyTransactionParams extends CreateTradeTransactionParams {
     tokenAccounts: Address[]
-    amount: bigint
-    slippage: number
 }
 
-export async function createBuyTransaction({ mint, bondingCurve, user, tokenAccounts, amount, slippage }: CreateBuyTransactionParams) {
+export async function createBuyTransaction({ mint, bondingCurve, user, tokenAccounts, amount, slippage, feeRecipient }: CreateBuyTransactionParams) {
     const instructions: IInstruction[] = []
     const tokenAccount = await getAssociatedTokenAddress(mint, user.address)
 
@@ -24,7 +19,7 @@ export async function createBuyTransaction({ mint, bondingCurve, user, tokenAcco
 
     const tokenOut = calculateTokenOut(bondingCurve, amount)
     const maxSolCost = getMaxSolCost(amount, slippage)
-    const params = await getBuyInstructionParams({ mint, user, tokenAccount, amount: tokenOut, maxSolCost })
+    const params = await getBuyInstructionParams({ mint, user, tokenAccount, amount: tokenOut, maxSolCost, feeRecipient })
 
     instructions.push(getBuyInstruction(params))
 

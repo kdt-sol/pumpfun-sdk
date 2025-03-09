@@ -14,7 +14,7 @@ export const BONDING_CURVE_SEED = Buffer.from('bonding-curve')
 
 export const GLOBAL_ACCOUNT_ADDRESS = address('4wTV1YmiEkRvAtNtsSGPtUrqRYQMe5SKy2uB4Jjaxnjf')
 
-export const FEE_RECIPIENT_ADDRESS = address('CebN5WGQ4jvEPvsVU4EoHEpgzq1VV7AbicfhtW4xC9iM')
+export const FEE_RECIPIENT_ADDRESS = address('62qc2CNXwrYqQScmEdiZFFAnJR262PxWEuNQtxfafNgV')
 
 export const EVENT_AUTHORITY_ADDRESS = address('Ce6TQqeHC9p8KetsN6JsjHK7UTZk7nasjjnr7XxXp9F1')
 
