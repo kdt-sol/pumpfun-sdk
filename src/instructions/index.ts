@@ -1,9 +1,12 @@
 export * from './buy'
 export * from './create'
+export * from './extend-account'
 export * from './identify'
 export * from './initialize'
+export * from './migrate'
 export * from './sell'
 export * from './set-params'
+export * from './update-global-authority'
 export * from './withdraw'
 
 export type * from './types'

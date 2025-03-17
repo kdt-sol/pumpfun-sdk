@@ -30,6 +30,7 @@
         "access": "public"
     },
     "scripts": {
+        "generate": "tsx scripts/generate.ts",
         "build": "rimraf dist && tsup && tsc --project ./tsconfig.build.json",
         "release": "tsx scripts/release.ts && changelogen gh release && pnpm publish",
         "up": "ncu -i",
@@ -49,6 +50,8 @@
     },
     "devDependencies": {
         "@codama/nodes-from-anchor": "^1.1.8",
+        "@codama/renderers": "^1.0.16",
+        "@codama/renderers-js": "^1.2.7",
         "@commitlint/cli": "^19.8.0",
         "@commitlint/config-conventional": "^19.8.0",
         "@kdt310722/eslint-config": "^0.1.9",

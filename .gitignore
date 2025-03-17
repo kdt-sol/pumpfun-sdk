@@ -60,3 +60,4 @@ test-results
 
 # Test files
 src/test.ts
+src/generated
