@@ -1,10 +1,5 @@
-import { COMPLETE_EVENT_IDENTITY, getCompleteEventDecoder } from './complete'
-import { CREATE_EVENT_IDENTITY, getCreateEventDecoder } from './create'
-import { SET_PARAMS_EVENT_IDENTITY, getSetParamsEventDecoder } from './set-params'
-import { TRADE_EVENT_IDENTITY, getTradeEventDecoder } from './trade'
-import { COMPLETE_PUMP_AMM_MIGRATION_EVENT_IDENTITY, getCompletePumpAmmMigrationEventDecoder } from './complete-pump-amm-migration'
-import { EXTEND_ACCOUNT_EVENT_IDENTITY, getExtendAccountEventDecoder } from './extend-account'
-import { UPDATE_GLOBAL_AUTHORITY_EVENT_IDENTITY, getUpdateGlobalAuthorityEventDecoder } from './update-global-authority'
+import { getCompleteEventDecoder, getCompletePumpAmmMigrationEventDecoder, getCreateEventDecoder, getExtendAccountEventDecoder, getSetParamsEventDecoder, getTradeEventDecoder, getUpdateGlobalAuthorityEventDecoder } from '../generated'
+import { COMPLETE_EVENT_IDENTITY, COMPLETE_PUMP_AMM_MIGRATION_EVENT_IDENTITY, CREATE_EVENT_IDENTITY, EXTEND_ACCOUNT_EVENT_IDENTITY, SET_PARAMS_EVENT_IDENTITY, TRADE_EVENT_IDENTITY, UPDATE_GLOBAL_AUTHORITY_EVENT_IDENTITY } from './constants'
 
 export enum PumpEvent {
     COMPLETE,

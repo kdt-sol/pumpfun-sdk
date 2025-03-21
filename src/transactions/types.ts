@@ -1,5 +1,5 @@
 import type { Address, TransactionSigner } from '@solana/kit'
-import type { BondingCurve } from '../accounts'
+import type { BondingCurve } from '../generated'
 
 export interface CreateTradeTransactionParams {
     mint: Address

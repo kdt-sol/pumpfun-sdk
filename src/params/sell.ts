@@ -1,5 +1,5 @@
-import { type SellInput, getSellInstruction } from '../instructions'
 import { ASSOCIATED_TOKEN_PROGRAM_ADDRESS } from '../constants'
+import { type SellInput, getSellInstruction } from '../generated'
 import { type TradeInstructionParamsInput, getTradeInstructionParams } from './trade'
 
 export interface SellInstructionParamsInput extends TradeInstructionParamsInput {

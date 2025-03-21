@@ -1,4 +1,4 @@
-import { type BuyInput, getBuyInstruction } from '../instructions'
+import { type BuyInput, getBuyInstruction } from '../generated'
 import { type TradeInstructionParamsInput, getTradeInstructionParams } from './trade'
 
 export interface BuyInstructionParamsInput extends TradeInstructionParamsInput {

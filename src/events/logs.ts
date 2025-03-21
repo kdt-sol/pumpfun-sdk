@@ -1,6 +1,6 @@
 import { tryCatch } from '@kdt310722/utils/function'
 import { notNullish } from '@kdt310722/utils/common'
-import { PUMP_PROGRAM_ADDRESS } from '../constants'
+import { PUMP_PROGRAM_ADDRESS } from '../generated'
 import type { ParsedLog } from './types'
 import { EVENT_DECODERS, identifyPumpEvent } from './identify'
 

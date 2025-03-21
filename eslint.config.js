@@ -1,1 +1,3 @@
-export default import('@kdt310722/eslint-config').then((m) => m.defineFlatConfig())
+export default import('@kdt310722/eslint-config').then((m) => m.defineFlatConfig({}, {
+    ignores: ['**/generated'],
+}))

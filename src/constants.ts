@@ -8,8 +8,6 @@ export const ASSOCIATED_TOKEN_PROGRAM_ADDRESS = address('ATokenGPvbdGVxr1b2hvZbs
 
 export const RENT_PROGRAM_ADDRESS = address('SysvarRent111111111111111111111111111111111')
 
-export const PUMP_PROGRAM_ADDRESS = address('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P')
-
 export const BONDING_CURVE_SEED = Buffer.from('bonding-curve')
 
 export const GLOBAL_ACCOUNT_ADDRESS = address('4wTV1YmiEkRvAtNtsSGPtUrqRYQMe5SKy2uB4Jjaxnjf')
@@ -19,3 +17,5 @@ export const FEE_RECIPIENT_ADDRESS = address('62qc2CNXwrYqQScmEdiZFFAnJR262PxWEu
 export const EVENT_AUTHORITY_ADDRESS = address('Ce6TQqeHC9p8KetsN6JsjHK7UTZk7nasjjnr7XxXp9F1')
 
 export const MICRO_LAMPORTS_PER_LAMPORT = 10 ** 6
+
+export const PUMP_TOKEN_DECIMALS = 6

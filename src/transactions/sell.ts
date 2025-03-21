@@ -1,8 +1,7 @@
 import { appendTransactionMessageInstruction, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
-import type { Global } from '../accounts'
-import { getSellInstruction } from '../instructions'
 import { getSellInstructionParams } from '../params'
 import { calculateSolOut, getAssociatedTokenAddress, getMinSolOut } from '../utils'
+import { type Global, getSellInstruction } from '../generated'
 import type { CreateTradeTransactionParams } from './types'
 
 export interface CreateSellTransactionParams extends CreateTradeTransactionParams {

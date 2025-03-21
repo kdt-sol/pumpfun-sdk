@@ -1,5 +1,5 @@
 import { BigIntMath } from '@kdt310722/utils/number'
-import type { BondingCurve } from '../accounts'
+import type { BondingCurve } from '../generated'
 
 export function calculateTokenPrice(virtualSolReserves: bigint, virtualTokenReserves: bigint, decimals = 6n) {
     return (virtualSolReserves * 10n ** decimals) / virtualTokenReserves

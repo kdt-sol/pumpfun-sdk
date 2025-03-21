@@ -1,8 +1,8 @@
 import { getCreateAssociatedTokenInstruction } from '@solana-program/token'
 import { type Address, type IInstruction, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
-import { getBuyInstruction } from '../instructions'
 import { getBuyInstructionParams } from '../params'
 import { calculateTokenOut, getAssociatedTokenAddress, getMaxSolCost } from '../utils'
+import { getBuyInstruction } from '../generated'
 import type { CreateTradeTransactionParams } from './types'
 
 export interface CreateBuyTransactionParams extends CreateTradeTransactionParams {
