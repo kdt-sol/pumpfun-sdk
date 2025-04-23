@@ -884,111 +884,6 @@
                     "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
                 },
                 {
-                    "name": "metadata_account",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    109,
-                                    101,
-                                    116,
-                                    97,
-                                    100,
-                                    97,
-                                    116,
-                                    97
-                                ]
-                            },
-                            {
-                                "kind": "const",
-                                "value": [
-                                    11,
-                                    112,
-                                    101,
-                                    177,
-                                    227,
-                                    209,
-                                    124,
-                                    69,
-                                    56,
-                                    157,
-                                    82,
-                                    127,
-                                    107,
-                                    4,
-                                    195,
-                                    205,
-                                    88,
-                                    184,
-                                    108,
-                                    115,
-                                    26,
-                                    160,
-                                    253,
-                                    181,
-                                    73,
-                                    182,
-                                    209,
-                                    188,
-                                    3,
-                                    248,
-                                    41,
-                                    70
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "mint"
-                            }
-                        ],
-                        "program": {
-                            "kind": "const",
-                            "value": [
-                                11,
-                                112,
-                                101,
-                                177,
-                                227,
-                                209,
-                                124,
-                                69,
-                                56,
-                                157,
-                                82,
-                                127,
-                                107,
-                                4,
-                                195,
-                                205,
-                                88,
-                                184,
-                                108,
-                                115,
-                                26,
-                                160,
-                                253,
-                                181,
-                                73,
-                                182,
-                                209,
-                                188,
-                                3,
-                                248,
-                                41,
-                                70
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "creator",
-                    "docs": [
-                        "metadata account creators only if creators is not None"
-                    ],
-                    "writable": true
-                },
-                {
                     "name": "pump_amm",
                     "address": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
                 },
@@ -1488,8 +1383,7 @@
                     ]
                 },
                 {
-                    "name": "new_authority",
-                    "signer": true
+                    "name": "new_authority"
                 },
                 {
                     "name": "event_authority",
@@ -2131,12 +2025,6 @@
                         "type": "pubkey"
                     },
                     {
-                        "name": "creator",
-                        "type": {
-                            "option": "pubkey"
-                        }
-                    },
-                    {
                         "name": "mint_amount",
                         "type": "u64"
                     },
@@ -2146,10 +2034,6 @@
                     },
                     {
                         "name": "pool_migration_fee",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "creator_fee",
                         "type": "u64"
                     },
                     {
@@ -2286,6 +2170,9 @@
                     },
                     {
                         "name": "creator_fee",
+                        "docs": [
+                            "Unused"
+                        ],
                         "type": "u64"
                     },
                     {
