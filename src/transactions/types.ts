@@ -1,9 +1,10 @@
 import type { Address, TransactionSigner } from '@solana/kit'
-import type { BondingCurve } from '../generated'
+import type { BondingCurve, Global } from '../generated'
 
 export interface CreateTradeTransactionParams {
     mint: Address
-    bondingCurve: Pick<BondingCurve, 'virtualSolReserves' | 'virtualTokenReserves' | 'realTokenReserves'>
+    global: Pick<Global, 'feeBasisPoints' | 'creatorFeeBasisPoints'>
+    bondingCurve: Pick<BondingCurve, 'virtualSolReserves' | 'virtualTokenReserves' | 'realTokenReserves' | 'creator'>
     user: TransactionSigner
     amount: bigint
     slippage: number

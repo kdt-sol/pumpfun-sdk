@@ -1,5 +1,9 @@
 import { address } from '@solana/kit'
 
+export const BONDING_CURVE_SEED = Buffer.from('bonding-curve')
+
+export const CREATOR_VAULT_SEED = Buffer.from('creator-vault')
+
 export const SYSTEM_PROGRAM_ADDRESS = address('11111111111111111111111111111111')
 
 export const TOKEN_PROGRAM_ADDRESS = address('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA')
@@ -7,8 +11,6 @@ export const TOKEN_PROGRAM_ADDRESS = address('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9S
 export const ASSOCIATED_TOKEN_PROGRAM_ADDRESS = address('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL')
 
 export const RENT_PROGRAM_ADDRESS = address('SysvarRent111111111111111111111111111111111')
-
-export const BONDING_CURVE_SEED = Buffer.from('bonding-curve')
 
 export const GLOBAL_ACCOUNT_ADDRESS = address('4wTV1YmiEkRvAtNtsSGPtUrqRYQMe5SKy2uB4Jjaxnjf')
 
