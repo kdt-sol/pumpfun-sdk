@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v0.4.0
+
+[compare changes](https://github.com/kdt-sol/pumpfun-sdk/compare/v0.3.1...v0.4.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Update idl ([27d46ed](https://github.com/kdt-sol/pumpfun-sdk/commit/27d46ed))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update idl ([27d46ed](https://github.com/kdt-sol/pumpfun-sdk/commit/27d46ed))
+
+### ❤️ Contributors
+
+- DiepPk <kdt310722@gmail.com>
+
 ## v0.3.1
 
 [compare changes](https://github.com/kdt-sol/pumpfun-sdk/compare/v0.3.0...v0.3.1)
