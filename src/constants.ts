@@ -4,6 +4,10 @@ export const BONDING_CURVE_SEED = Buffer.from('bonding-curve')
 
 export const CREATOR_VAULT_SEED = Buffer.from('creator-vault')
 
+export const GLOBAL_VOLUME_ACCUMULATOR_SEED = Buffer.from('global_volume_accumulator')
+
+export const USER_VOLUME_ACCUMULATOR_SEED = Buffer.from('user_volume_accumulator')
+
 export const SYSTEM_PROGRAM_ADDRESS = address('11111111111111111111111111111111')
 
 export const TOKEN_PROGRAM_ADDRESS = address('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA')

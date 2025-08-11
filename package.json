@@ -36,7 +36,7 @@
         "up": "ncu -i",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "prepare": "npx only-allow pnpm && simple-git-hooks",
+        "prepare": "npx only-allow pnpm && simple-git-hooks && pnpm generate",
         "prepublishOnly": "pnpm build"
     },
     "peerDependencies": {

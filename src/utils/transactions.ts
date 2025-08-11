@@ -7,7 +7,7 @@ export interface PriorityFee {
     lamports: bigint
 }
 
-export function setTransactionPriorityFee<TTransaction extends BaseTransactionMessage>({ units, lamports }: PriorityFee, transactionMessage: TTransaction): TTransaction {
+export function setTransactionPriorityFee<TTransaction extends BaseTransactionMessage>({ units, lamports }: PriorityFee, transactionMessage: TTransaction) {
     const microLamports = BigInt(Math.trunc(Number(lamports) / units * MICRO_LAMPORTS_PER_LAMPORT))
     const instructions = [getSetComputeUnitLimitInstruction({ units }), getSetComputeUnitPriceInstruction({ microLamports })]
 

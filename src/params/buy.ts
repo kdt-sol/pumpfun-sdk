@@ -1,4 +1,5 @@
 import { type BuyInput, getBuyInstruction } from '../generated'
+import { getGlobalVolumeAccumulatorAddress, getUserVolumeAccumulatorAddress } from '../utils'
 import { type TradeInstructionParamsInput, getTradeInstructionParams } from './trade'
 
 export interface BuyInstructionParamsInput extends TradeInstructionParamsInput {
@@ -6,7 +7,10 @@ export interface BuyInstructionParamsInput extends TradeInstructionParamsInput {
 }
 
 export async function getBuyInstructionParams(input: BuyInstructionParamsInput): Promise<BuyInput> {
-    return { ...(await getTradeInstructionParams(input)), maxSolCost: input.maxSolCost }
+    const globalVolumeAccumulator = await getGlobalVolumeAccumulatorAddress()
+    const userVolumeAccumulator = await getUserVolumeAccumulatorAddress(input.user.address)
+
+    return { ...(await getTradeInstructionParams(input)), maxSolCost: input.maxSolCost, globalVolumeAccumulator, userVolumeAccumulator }
 }
 
 export async function createBuyInstruction(input: BuyInstructionParamsInput) {
