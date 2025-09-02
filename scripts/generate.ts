@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import { createFromRoot } from 'codama'
 import { type AnchorIdl, type IdlV00AccountItem, type IdlV00Instruction, type IdlV00Seed, type IdlV01Instruction, type IdlV01InstructionAccountItem, type IdlV01Seed, rootNodeFromAnchor } from '@codama/nodes-from-anchor'
-import { renderJavaScriptVisitor } from '@codama/renderers'
+import { renderVisitor } from '@codama/renderers-js'
 import bs58 from 'bs58'
 import { notNullish } from '@kdt310722/utils/common'
 
@@ -62,5 +62,5 @@ const idlPath = resolve(srcPath, 'idl.json')
 const generatedPath = resolve(srcPath, 'generated')
 
 import(idlPath).then((idl) => fixIdl(idl)).then((idl) => createFromRoot(rootNodeFromAnchor(idl))).then(async (codama) => {
-    await codama.accept(renderJavaScriptVisitor(generatedPath))
+    await codama.accept(renderVisitor(generatedPath))
 })

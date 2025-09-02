@@ -1,5 +1,5 @@
 import { type Address, getAddressEncoder, getProgramDerivedAddress } from '@solana/kit'
-import { ASSOCIATED_TOKEN_PROGRAM_ADDRESS, BONDING_CURVE_SEED, CREATOR_VAULT_SEED, GLOBAL_VOLUME_ACCUMULATOR_SEED, TOKEN_PROGRAM_ADDRESS, USER_VOLUME_ACCUMULATOR_SEED } from '../constants'
+import { ASSOCIATED_TOKEN_PROGRAM_ADDRESS, BONDING_CURVE_SEED, CREATOR_VAULT_SEED, FEE_CONFIG_SEED, FEE_PROGRAM_ADDRESS, GLOBAL_VOLUME_ACCUMULATOR_SEED, TOKEN_PROGRAM_ADDRESS, USER_VOLUME_ACCUMULATOR_SEED } from '../constants'
 import { PUMP_PROGRAM_ADDRESS } from '../generated'
 
 export async function getAssociatedTokenAddress(mint: Address, owner: Address, programId: Address = TOKEN_PROGRAM_ADDRESS, associatedTokenProgramId: Address = ASSOCIATED_TOKEN_PROGRAM_ADDRESS) {
@@ -23,6 +23,10 @@ export async function getAssociatedBondingCurveAddress(mint: Address, bondingCur
 
 export async function getGlobalVolumeAccumulatorAddress() {
     return getProgramDerivedAddress({ programAddress: PUMP_PROGRAM_ADDRESS, seeds: [GLOBAL_VOLUME_ACCUMULATOR_SEED] }).then(([address]) => address)
+}
+
+export async function getFeeConfigAddress() {
+    return getProgramDerivedAddress({ programAddress: FEE_PROGRAM_ADDRESS, seeds: [FEE_CONFIG_SEED, getAddressEncoder().encode(PUMP_PROGRAM_ADDRESS)] }).then(([address]) => address)
 }
 
 export async function getUserVolumeAccumulatorAddress(user: Address) {

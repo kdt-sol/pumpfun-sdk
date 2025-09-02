@@ -1,8 +1,12 @@
 import { address } from '@solana/kit'
 
+export const FEE_PROGRAM_ADDRESS = address('pfeeUxB6jkeY1Hxd7CsFCAjcbHA9rWtchMGdZ6VojVZ')
+
 export const BONDING_CURVE_SEED = Buffer.from('bonding-curve')
 
 export const CREATOR_VAULT_SEED = Buffer.from('creator-vault')
+
+export const FEE_CONFIG_SEED = Buffer.from('fee_config')
 
 export const GLOBAL_VOLUME_ACCUMULATOR_SEED = Buffer.from('global_volume_accumulator')
 
