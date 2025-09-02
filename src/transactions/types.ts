@@ -1,5 +1,5 @@
 import type { Address, TransactionSigner } from '@solana/kit'
-import type { BondingCurve, Global } from '../generated'
+import type { BondingCurve, FeeConfig, Global } from '../generated'
 
 export interface CreateTradeTransactionParams {
     mint: Address
@@ -8,5 +8,7 @@ export interface CreateTradeTransactionParams {
     user: TransactionSigner
     amount: bigint
     slippage: number
+    feeConfig?: Pick<FeeConfig, 'feeTiers'>
     feeRecipient?: Address
+    supply?: bigint
 }

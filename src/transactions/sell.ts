@@ -1,14 +1,19 @@
 import { appendTransactionMessageInstruction, createTransactionMessage, pipe, setTransactionMessageFeePayer } from '@solana/kit'
 import { getSellInstructionParams } from '../params'
-import { calculateSolOut, createExtendAccountInstruction, getAssociatedTokenAddress, getCreatorFeeBasisPoints, getMinSolOut, isLegacyBondingCurve } from '../utils'
+import { calculateSolOut, createExtendAccountInstruction, getAssociatedTokenAddress, getMarketCapInLamports, getMinSolOut, isLegacyBondingCurve } from '../utils'
 import { getSellInstruction } from '../generated'
 import type { CreateTradeTransactionParams } from './types'
+import { getFeeInfo } from './utils'
 
 export type CreateSellTransactionParams = CreateTradeTransactionParams
 
-export async function createSellTransaction({ mint, bondingCurve, global, user, amount, slippage, feeRecipient }: CreateSellTransactionParams) {
+export async function createSellTransaction({ mint, bondingCurve, global, user, amount, slippage, feeRecipient, feeConfig, supply }: CreateSellTransactionParams) {
     const isLegacy = isLegacyBondingCurve(bondingCurve)
-    const solOut = calculateSolOut(bondingCurve, amount, global.feeBasisPoints, getCreatorFeeBasisPoints(global, isLegacy))
+
+    const marketCap = supply ? getMarketCapInLamports(bondingCurve, supply) : undefined
+    const feeInfo = getFeeInfo(global, feeConfig, marketCap)
+
+    const solOut = calculateSolOut(bondingCurve, amount, feeInfo)
     const minSolOutput = getMinSolOut(solOut, slippage)
     const tokenAccount = await getAssociatedTokenAddress(mint, user.address)
     const params = await getSellInstructionParams({ mint, amount, user, minSolOutput, tokenAccount, feeRecipient, creator: bondingCurve.creator })
