@@ -1,7 +1,7 @@
 {
     "name": "@kdt-sol/pumpfun-sdk",
     "type": "module",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "packageManager": "pnpm@10.15.1",
     "description": "A SDK to interact with PumpFun",
     "author": "Diep Dang <kdt310722@gmail.com>",

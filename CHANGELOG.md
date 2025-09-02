@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v0.5.0
+
+[compare changes](https://github.com/kdt-sol/pumpfun-sdk/compare/v0.4.0...v0.5.0)
+
+### 🚀 Enhancements
+
+- Update idl ([e45271d](https://github.com/kdt-sol/pumpfun-sdk/commit/e45271d))
+- ⚠️  New fee system ([93e5946](https://github.com/kdt-sol/pumpfun-sdk/commit/93e5946))
+
+### 🏡 Chore
+
+- Update deps ([024c3ee](https://github.com/kdt-sol/pumpfun-sdk/commit/024c3ee))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  New fee system ([93e5946](https://github.com/kdt-sol/pumpfun-sdk/commit/93e5946))
+
+### ❤️ Contributors
+
+- DiepPk <kdt310722@gmail.com>
+
 ## v0.4.0
 
 [compare changes](https://github.com/kdt-sol/pumpfun-sdk/compare/v0.3.1...v0.4.0)
